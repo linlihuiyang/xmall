@@ -1,0 +1,23 @@
+dubbo:
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    #多个用,分割
+    subscribed-services: xmall-member-service
+spring:
+  profiles:
+    active: dev
+  application:
+    name: xmall-admin-web
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        prefix: xmall-admin-web
