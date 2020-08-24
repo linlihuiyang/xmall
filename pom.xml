@@ -33,7 +33,7 @@
         <mysql-connector.version>8.0.16</mysql-connector.version>
         <jjwt.version>0.9.0</jjwt.version>
         <aliyun-oss.version>2.5.0</aliyun-oss.version>
-        <spring.boot.admin.version>2.2.3</spring.boot.admin.version>
+        <spring.boot.admin.version>2.2.2</spring.boot.admin.version>
         <fastjson.version>1.2.70</fastjson.version>
         <mybatisplus.version>3.3.2</mybatisplus.version>
         <dubbo.version>2.7.6</dubbo.version>
@@ -144,12 +144,12 @@
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
-            <!-- 阿里云OSS -->
-            <dependency>
-                <groupId>com.aliyun.oss</groupId>
-                <artifactId>aliyun-sdk-oss</artifactId>
-                <version>${aliyun-oss.version}</version>
-            </dependency>
+<!--            &lt;!&ndash; 阿里云OSS &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.aliyun.oss</groupId>-->
+<!--                <artifactId>aliyun-sdk-oss</artifactId>-->
+<!--                <version>${aliyun-oss.version}</version>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -197,11 +197,11 @@
                 <version>${spring.boot.admin.version}</version>
             </dependency>
             <!-- spring boot admin server -->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-server</artifactId>
-                <version>${spring.boot.admin.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>de.codecentric</groupId>-->
+<!--                <artifactId>spring-boot-admin-starter-server</artifactId>-->
+<!--                <version>${spring.boot.admin.version}</version>-->
+<!--            </dependency>-->
 
             <!-- Dubbo -->
             <dependency>
@@ -243,13 +243,23 @@
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--                <version>2.3.1.RELEASE</version>-->
+<!--            </plugin>-->
         </plugins>
     </build>
-
+    <distributionManagement>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2024374-release-z2y2gS/</url>
+        </repository>
+        <snapshotRepository>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2024374-snapshot-XfUbNa/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 
 </project>
