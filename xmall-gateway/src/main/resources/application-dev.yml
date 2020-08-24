@@ -10,6 +10,15 @@ spring:
       client:
         # admin 服务端的地址
         url: http://localhost:8095
+  cloud:
+    gateway:
+      routes:
+        - id: xmall-admin-web
+          uri: lb://xmall-admin-web
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=1
 
 management:
   endpoints:
@@ -24,19 +33,31 @@ management:
 secure:
   ignored:
     urls: #安全路径白名单
-      - /swagger-ui.html
-      - /swagger-resources/**
-      - /swagger/**
-      - /**/v2/api-docs
-      - /**/*.js
-      - /**/*.css
-      - /**/*.png
-      - /**/*.ico
-      - /webjars/springfox-swagger-ui/**
-      - /actuator/**
-      - /druid/**
-      - /admin/login
-      - /admin/register
-      - /admin/info
-      - /admin/logout
-      - /minio/upload
+    - /swagger-ui.html
+    - /swagger-resources/**
+    - /swagger/**
+    - /**/v2/api-docs
+    - /**/*.js
+    - /**/*.css
+    - /**/*.png
+    - /**/*.ico
+    - /webjars/springfox-swagger-ui/**
+    - /actuator/**
+    - /admin/login
+    - /admin/register
+    - /admin/info
+    - /admin/logout
+    - /minio/upload
+jwt:
+  tokenHeader: Authorization
+  secret: mall-admin-secret
+  expiration: 604800
+  tokenHead: Bearer
+redis:
+  database: mall
+  key:
+    admin: 'ums:admin'
+    token: 'ums:token'
+    resourceList: 'ums:resourceList'
+  expire:
+    common: 86400 # 24小时

@@ -1,9 +1,9 @@
 server:
-  port: 8848
+  port: 8888
 spring:
   profiles:
     # dev 默认为开发环境 , prod 线上环境
-    active: prod
+    active: dev
   application:
     name: xmall-gateway
   cloud:

@@ -12,7 +12,7 @@
         <module>xmall-security</module>
         <module>xmall-product</module>
         <module>xmall-order</module>
-        <module>xmall-storage</module>
+        <module>xmall-oss-web</module>
         <module>xmall-member</module>
         <module>xmall-seller</module>
         <module>xmall-admin-web</module>
@@ -112,6 +112,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba.cloud</groupId>-->
+                <!--<artifactId>aliyun-spring-boot-dependencies</artifactId>-->
+                <!--<version>1.0.0-SNAPSHOT</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
 
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -144,12 +151,20 @@
                 <artifactId>jjwt</artifactId>
                 <version>${jjwt.version}</version>
             </dependency>
-<!--            &lt;!&ndash; 阿里云OSS &ndash;&gt;-->
-<!--            <dependency>-->
-<!--                <groupId>com.aliyun.oss</groupId>-->
-<!--                <artifactId>aliyun-sdk-oss</artifactId>-->
-<!--                <version>${aliyun-oss.version}</version>-->
-<!--            </dependency>-->
+            <!-- 阿里云OSS -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-oss.version}</version>
+            </dependency>
+
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba.cloud</groupId>-->
+                <!--<artifactId>aliyun-spring-boot-dependencies</artifactId>-->
+                <!--<version>1.0.0-SNAPSHOT</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
 
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -229,6 +244,11 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <compilerArguments>
+                        <bootclasspath>
+                            ${java.home}/lib/rt.jar${path.separator}${java.home}/lib/jce.jar
+                        </bootclasspath>
+                    </compilerArguments>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
