@@ -1,0 +1,8 @@
+aliyun:
+  oss:
+    endpoint:
+    accessKeyId:
+    accessKeySecret:
+    roleRan:
+    tokenExpireTime:
+    policeFile: "policy/bucket_write_policy.txt"
